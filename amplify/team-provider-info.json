@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-appsyncblogapp-dev-121104-authRole",
+      "UnauthRoleArn": "arn:aws:iam::006379744374:role/amplify-appsyncblogapp-dev-121104-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::006379744374:role/amplify-appsyncblogapp-dev-121104-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-appsyncblogapp-dev-121104-deployment",
+      "UnauthRoleName": "amplify-appsyncblogapp-dev-121104-unauthRole",
+      "StackName": "amplify-appsyncblogapp-dev-121104",
+      "StackId": "arn:aws:cloudformation:us-east-1:006379744374:stack/amplify-appsyncblogapp-dev-121104/428bdd80-134f-11ed-89c8-0a8cb9742a99",
+      "AmplifyAppId": "dzc223p5ewqqv"
+    }
+  }
+}
