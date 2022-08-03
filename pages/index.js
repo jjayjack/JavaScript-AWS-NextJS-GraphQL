@@ -5,6 +5,10 @@ import { listPosts } from "../src/graphql/queries";
 export default function Home() {
 	const [posts, setPosts] = useState([]);
 
+	useEffect(() => {
+		fetchPosts();
+	}, []);
+
 	async function fetchPosts() {
 		const postData = await API.graphql({
 			query: listPosts
@@ -13,8 +17,13 @@ export default function Home() {
 	}
 
 	return (
-		<h1 className="text-3xl font-bold bg-stone-500 underline text-teal-100 decoration-teal-100">
-			Hello world!
-		</h1>
+		<div>
+			<h1 className="text-3xl font-bold bg-stone-500 underline text-teal-100 decoration-teal-100">
+				My Posts
+			</h1>
+			{posts.map((post, index) => (
+				<p key={post.id}>{post.title}</p>
+			))}
+		</div>
 	);
 }
