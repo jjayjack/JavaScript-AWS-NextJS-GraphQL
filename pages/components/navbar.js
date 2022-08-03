@@ -7,6 +7,23 @@ import "../../configureAmplify";
 const Navbar = () => {
 	const [signedUser, setSignedUser] = useState(false);
 
+	async function authListener() {
+		Hub.listen("auth", (data) => {
+			switch (data.payload.event) {
+				case "signIn":
+					return setSignedUser(true);
+				case "signOut":
+					return setSignedUser(false);
+			}
+		});
+		try {
+			await Auth.currentAuthenticatedUser();
+			setSignedUser(true);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	return (
 		<nav className="flex justify-center pt-3 pb-3 space-x-4 border-b bg-cyan-500 border-gray-300">
 			{[
