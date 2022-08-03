@@ -21,3 +21,4 @@ function Profile() {
 		</div>
 	);
 }
+export default withAuthenticator(Profile);
