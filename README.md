@@ -48,3 +48,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     ``amplify console api``
     ``amplify add auth``
     ``amplify update api``
+
+### 4. [uuid](https://www.npmjs.com/package/uuid)
