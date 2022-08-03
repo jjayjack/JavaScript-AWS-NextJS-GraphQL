@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import "../../configureAmplify";
 
 const Navbar = () => {
-	const [signedUser, setSignedUser] = useState[false];
+	const [signedUser, setSignedUser] = useState(false);
 
 	return (
 		<nav className="flex justify-center pt-3 pb-3 space-x-4 border-b bg-cyan-500 border-gray-300">
@@ -22,3 +22,5 @@ const Navbar = () => {
 		</nav>
 	);
 };
+
+export default Navbar;
