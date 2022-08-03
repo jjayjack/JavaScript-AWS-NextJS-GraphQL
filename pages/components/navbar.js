@@ -37,6 +37,13 @@ const Navbar = () => {
 					</a>
 				</Link>
 			))}
+			{signedUser && (
+				<Link href="/my-posts">
+					<a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate hover:text-slate-900">
+						My Posts
+					</a>
+				</Link>
+			)}
 		</nav>
 	);
 };
