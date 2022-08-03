@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { Auth, Hub } from "aws-amplify";
 
 import "../../configureAmplify";
 

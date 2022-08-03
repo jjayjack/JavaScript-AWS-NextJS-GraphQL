@@ -46,5 +46,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     ``amplify add api``
     ``amplify push``
     ``amplify console api``
+    ``amplify add auth``
 
 ### 4. []
