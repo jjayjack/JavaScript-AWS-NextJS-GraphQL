@@ -40,3 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### 2. [tailwindcss](https://tailwindcss.com/)
 
 ### 3. [AWS Amplify](https://aws.amazon.com/amplify/)
+
+    ``amplify init``
+    ``@aws-amplify/ui-react@1.x.x``
+
+### 4. []
