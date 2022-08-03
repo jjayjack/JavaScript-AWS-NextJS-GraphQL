@@ -6,6 +6,9 @@ import "../../configureAmplify";
 
 const Navbar = () => {
 	const [signedUser, setSignedUser] = useState(false);
+	useEffect(() => {
+		authListener();
+	}, []);
 
 	async function authListener() {
 		Hub.listen("auth", (data) => {
