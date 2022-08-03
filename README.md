@@ -44,5 +44,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     ``amplify init``
     ``@aws-amplify/ui-react@1.x.x``
     ``amplify add api``
+    ``amplify push``
+    ``amplify console api``
 
 ### 4. []
