@@ -51,8 +51,15 @@ function CreatePost() {
 				value={post.content}
 				onChange={(value) => setPost({ ...post, content: value })}
 			/>
+			<button
+				type="button"
+				className="mb-4 bg-blue-600 text-white font-semibold px-8 p-2 rounded-lg"
+				onClick={createNewPost}
+			>
+				Create Post
+			</button>
 		</div>
 	);
 }
 
-export default CreatePost;
+export default withAuthenticator(CreatePost);
