@@ -11,14 +11,14 @@ export default function Post({ post }) {
 	}
 
 	return (
-		<div className="container p-5 rounded-md border-2 border-double border-yellow-300">
-			<div className="container">
+		<div className="container ">
+			<div className="container p-5 rounded-md border-2 border-double border-yellow-300">
 				<h1 className="rounded-md text-5xl pb-3 font-semibold tracing-wide ">
 					{post.title}
-					<h2 className="text-lg justify-self-end">
-						With kneads, {post.username}
-					</h2>
 				</h1>
+				<h2 className="text-lg justify-self-end">
+					With kneads, {post.username}
+				</h2>
 			</div>
 			<span className="mt-6">{post.createdAt}</span>
 			<h3 className="text-justify">{post.content}</h3>
@@ -49,6 +49,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			post: postData.data.getPost
-		}
+		},
+		revalidate: 1
 	};
 }
