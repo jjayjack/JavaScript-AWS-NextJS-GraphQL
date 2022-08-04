@@ -16,12 +16,12 @@ export default function Post({ post }) {
 				<h1 className="rounded-md text-5xl pb-3 font-semibold tracing-wide ">
 					{post.title}
 				</h1>
-				<h2 className="text-lg justify-self-end">
-					With kneads, {post.username}
-				</h2>
+				<h2 className="text-lg font-light">With kneads, {post.username}</h2>
 			</div>
-			<span className="mt-6">{post.createdAt}</span>
-			<h3 className="text-justify">{post.content}</h3>
+			<div className="container mt-8">
+				<p ReactMarkDown="prose">{post.content}</p>
+				<span className="text-justify">{post.createdAt}</span>
+			</div>
 		</div>
 	);
 }

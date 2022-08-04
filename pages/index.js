@@ -18,7 +18,7 @@ export default function Home() {
 
 	return (
 		<div>
-			<h1 className="text-3xl font-bold bg-stone-500 underline text-teal-100 decoration-teal-100">
+			<h1 className="rounded-md text-5xl pb-3 font-semibold tracing-wide underline decoration-primary-tint ">
 				My Posts
 			</h1>
 			{posts.map((post, index) => (
