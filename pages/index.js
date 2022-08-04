@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { API } from "aws-amplify";
 import { listPosts } from "../src/graphql/queries";
+import Link from "next/link";
 
 export default function Home() {
 	const [posts, setPosts] = useState([]);
@@ -23,13 +24,15 @@ export default function Home() {
 			</h1>
 			<ul className="container cursor-pointer">
 				{posts.map((post, index) => (
-					<li
-						className="lowercase rounded-lg pl-2 text-justify text-primary  hover:indent-4 hover:text-tertiary hover:bg-quaternary"
-						key={index}
-					>
-						<h2 className="text-xl font-bold">{post.title}</h2>
-						<p>Written by: {post.username}</p>
-					</li>
+					<Link key={index} href={`/posts/${post.id}`}>
+						<li
+							className="lowercase rounded-lg pl-2 text-justify text-primary  hover:indent-4 hover:text-tertiary hover:bg-quaternary"
+							key={index}
+						>
+							<h2 className="text-xl font-bold">{post.title}</h2>
+							<p>Written by: {post.username}</p>
+						</li>
+					</Link>
 				))}
 			</ul>
 		</div>
