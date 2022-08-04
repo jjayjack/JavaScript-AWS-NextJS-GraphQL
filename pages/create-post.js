@@ -4,6 +4,8 @@ import { API } from "aws-amplify";
 import { useRouter } from "next/router";
 import { v4 as uuid } from "uuid";
 import { createPost } from "../src/graphql/mutations";
+import SimpleMdeReact from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 const initialState = { title: "", content: "" };
 
