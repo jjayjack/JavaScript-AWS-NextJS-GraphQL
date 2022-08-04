@@ -9,6 +9,14 @@ module.exports = {
 			center: true,
 			paddingTop: "2rem"
 		},
+		colors: {
+			primary: "#393e41",
+			secondary: "#3f88c5",
+			tertiary: "#f6f7eb",
+			quaternary: "#44bba4",
+			hover: "#2b608d",
+			danger: "#e94f37"
+		},
 		extend: {}
 	},
 	plugins: []

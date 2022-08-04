@@ -28,14 +28,14 @@ const Navbar = () => {
 	}
 
 	return (
-		<nav className="flex justify-center pt-3 pb-3 space-x-4 border-b bg-cyan-500 border-gray-300">
+		<nav className="flex justify-center bg-secondary p-3 space-x-4">
 			{[
 				["Home", "/"],
 				["Create Post", "/create-post"],
 				["Profile", "/profile"]
 			].map(([title, url], index) => (
 				<Link key={index} href={url}>
-					<a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate hover:text-slate-900">
+					<a className="rounded-lg px-3 py-2 text-primary font-medium hover:bg-hover hover:text-tertiary">
 						{title}
 					</a>
 				</Link>

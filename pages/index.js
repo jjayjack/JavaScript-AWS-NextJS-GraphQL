@@ -18,12 +18,19 @@ export default function Home() {
 
 	return (
 		<div>
-			<h1 className="rounded-md text-5xl pb-3 font-semibold tracing-wide underline decoration-primary-tint ">
+			<h1 className="rounded-md text-5xl pb-3 font-bold tracing-wide text-primary">
 				My Posts
 			</h1>
-			{posts.map((post, index) => (
-				<p key={index}>{post.title}</p>
-			))}
+			<div className="container">
+				{posts.map((post, index) => (
+					<p
+						className="lowercase rounded-lg pl-2 text-justify text-xl text-primary font-bold hover:indent-4 hover:text-tertiary hover:bg-quaternary"
+						key={index}
+					>
+						{post.title}
+					</p>
+				))}
+			</div>
 		</div>
 	);
 }
