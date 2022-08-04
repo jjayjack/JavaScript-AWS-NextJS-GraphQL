@@ -11,8 +11,17 @@ export default function Post({ post }) {
 	}
 
 	return (
-		<div>
-			<h1 className="text-5xl mt-4 font-semibold tracing-wide">{post.title}</h1>
+		<div className="container p-5 rounded-md border-2 border-double border-yellow-300">
+			<div className="container">
+				<h1 className="rounded-md text-5xl pb-3 font-semibold tracing-wide ">
+					{post.title}
+					<h2 className="text-lg justify-self-end">
+						With kneads, {post.username}
+					</h2>
+				</h1>
+			</div>
+			<span className="mt-6">{post.createdAt}</span>
+			<h3 className="text-justify">{post.content}</h3>
 		</div>
 	);
 }
