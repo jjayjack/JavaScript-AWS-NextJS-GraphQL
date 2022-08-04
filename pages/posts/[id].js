@@ -11,16 +11,18 @@ export default function Post({ post }) {
 	}
 
 	return (
-		<div className="container ">
-			<div className="container p-5 rounded-md border-2 border-double border-yellow-300">
-				<h1 className="rounded-md text-5xl pb-3 font-semibold tracing-wide ">
+		<div className="container lowercase rounded border-2 border-quaternary">
+			<div className="container p-5 pb-2 bg-quaternary">
+				<h1 className="rounded pb-3 text-tertiary text-5xl font-semibold tracking-wide">
 					{post.title}
 				</h1>
-				<h2 className="text-lg font-light">With kneads, {post.username}</h2>
+				<h2 className="text-lg text-primary font-light">
+					With kneads, {post.username}
+				</h2>
 			</div>
-			<div className="container mt-8">
-				<p ReactMarkDown="prose">{post.content}</p>
-				<span className="text-justify">{post.createdAt}</span>
+			<div className="container mt-5 p-3 text-primary">
+				<p className="text-center text-lg">{post.content}</p>
+				<h3 className="pt-3 text-sm">{post.createdAt} </h3>
 			</div>
 		</div>
 	);
