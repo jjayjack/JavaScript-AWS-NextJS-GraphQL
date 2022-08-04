@@ -21,16 +21,17 @@ export default function Home() {
 			<h1 className="rounded-md text-5xl pb-3 font-bold tracing-wide text-primary">
 				My Posts
 			</h1>
-			<div className="container">
+			<ul className="container cursor-pointer">
 				{posts.map((post, index) => (
-					<p
-						className="lowercase rounded-lg pl-2 text-justify text-xl text-primary font-bold hover:indent-4 hover:text-tertiary hover:bg-quaternary"
+					<li
+						className="lowercase rounded-lg pl-2 text-justify text-primary  hover:indent-4 hover:text-tertiary hover:bg-quaternary"
 						key={index}
 					>
-						{post.title}
-					</p>
+						<h2 className="text-xl font-bold">{post.title}</h2>
+						<p>Written by: {post.username}</p>
+					</li>
 				))}
-			</div>
+			</ul>
 		</div>
 	);
 }
