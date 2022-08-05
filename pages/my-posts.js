@@ -49,14 +49,10 @@ export default function MyPosts() {
 						</p>
 						<div className="flex container space-x-3 flex-auto">
 							<button className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold">
-								<Link key={index} href={`/edit-post/${post.id}`}>
-									edit
-								</Link>
+								<Link href={`/edit-post/${post.id}`}>edit</Link>
 							</button>
 							<button className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold">
-								<Link key={index} href={`/posts/${post.id}`}>
-									view
-								</Link>
+								<Link href={`/posts/${post.id}`}>view</Link>
 							</button>
 							<button
 								className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-danger hover:bg-danger hover:text-tertiary hover:font-bold"
