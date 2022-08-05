@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "appsyncblogappf05ddca8": {}
+        "appsyncblogappf05ddca8": {},
+        "true": {}
       }
     }
   }
