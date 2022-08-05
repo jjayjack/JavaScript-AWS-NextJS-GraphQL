@@ -34,6 +34,13 @@ function CreatePost() {
 		const { username } = await Auth.currentAuthenticatedUser();
 		post.username = username;
 
+		if (image) {
+			const filename = `${image.name}_${uuid()}`;
+			post.coverImage(filename);
+
+			await Storage.put(filename, image);
+		}
+
 		await API.graphql({
 			query: createPost,
 			variables: { input: post },
