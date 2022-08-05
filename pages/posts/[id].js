@@ -20,8 +20,8 @@ export default function Post({ post }) {
 					With kneads, {post.username}
 				</h2>
 			</div>
-			<div className="container mt-5 p-3 text-primary">
-				<p className="text-center text-lg">{post.content}</p>
+			<div className="container mt-5 p-3 text-primary text-center text-lg">
+				<ReactMarkDown className="prose" children={post.content} />
 				<h3 className="pt-3 text-sm">{post.createdAt} </h3>
 			</div>
 		</div>
