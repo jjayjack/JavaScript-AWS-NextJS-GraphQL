@@ -18,8 +18,8 @@ export default function Home() {
 	}
 
 	return (
-		<div className="container lowercase rounded border-2 border-quaternary">
-			<div className="container p-5 pb-2 bg-quaternary">
+		<div className="container lowercase rounded border-2 border-quaternary m-10">
+			<div className="container p-5 bg-quaternary">
 				<h1 className="rounded pb-3 text-tertiary text-5xl font-semibold tracking-wide">
 					Posts
 				</h1>

@@ -20,11 +20,11 @@ export default function MyPosts() {
 		setPosts(postData.data.postsByUsername.items);
 	}
 	return (
-		<div className="container">
-			<h1 className="rounded pb-3 text-quaternary text-5xl font-semibold tracking-wide">
+		<div className="container lowercase rounded border-2 border-quaternary m-10 p-5 bg-quaternary">
+			<h1 className="rounded pb-3 text-tertiary text-5xl font-semibold tracking-wide ">
 				My Posts
 			</h1>
-			<ul className="container cursor-pointer lowercase text-primary">
+			<ul className="container cursor-pointer rounded bg-tertiary mt-5 p-3 text-primary">
 				{posts.map((post, index) => (
 					<Link key={index} href={`/posts/${post.id}`}>
 						<li className="rounded-lg pl-2 text-justify hover:indent-4 hover:text-tertiary hover:bg-quaternary">
