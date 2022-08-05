@@ -1,6 +1,6 @@
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { useState, useRef, React } from "react";
-import { API, Auth } from "aws-amplify";
+import { API, Auth, Storage } from "aws-amplify";
 import { useRouter } from "next/router";
 import { v4 as uuid } from "uuid";
 import { createPost } from "../src/graphql/mutations";
