@@ -17,6 +17,7 @@ function CreatePost() {
 	const { title, content } = post;
 	const router = useRouter();
 	const [image, setImage] = useState(null);
+	const imageFileInput = useRef(null);
 
 	function onChange(event) {
 		setPost(() => ({
@@ -49,6 +50,17 @@ function CreatePost() {
 
 		router.push(`/posts/${id}`);
 	}
+
+	async function uploadImage() {
+		imageFileInput.current.click();
+	}
+
+	function handleChange(e) {
+		const fileUploaded = e.target.files[0];
+		if (!fileUploaded) return;
+		setImage(fileUploaded);
+	}
+
 	return (
 		<div className="container lowercase rounded border-2 border-quaternary bg-quaternary m-10 p-5">
 			<h1 className="rounded  text-3xl font-semibold tracking-wide text-tertiary mt-2">
