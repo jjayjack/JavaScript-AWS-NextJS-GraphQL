@@ -37,7 +37,7 @@ function CreatePost() {
 
 		if (image) {
 			const filename = `${image.name}_${uuid()}`;
-			post.coverImage(filename);
+			post.coverImage = filename;
 
 			await Storage.put(filename, image);
 		}
@@ -73,15 +73,24 @@ function CreatePost() {
 				value={post.title}
 				className="rounded border-b pb-2 text-lg my-4 focus:outline-none w-full bg-tertiary font-light text-primary placeholder-primary y-2"
 			/>
+			{image && <img src={URL.createObjectURL(image)} className="my-4" />}
 			<SimpleMDE
 				className="border-2 border-tertiary bg-tertiary rounded font-primary mb-3"
 				value={post.content}
 				onChange={(value) => setPost({ ...post, content: value })}
 			/>
+			<input
+				type="file"
+				ref={imageFileInput}
+				className="absolute w-0 h-0"
+				onChange={handleChange}
+			/>
+
 			<div className="flex flex-col">
 				<button
 					type="button"
 					className="rounded flex-auto mb-4 bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
+					onClick={uploadImage}
 				>
 					add image
 				</button>
