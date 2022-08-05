@@ -16,6 +16,7 @@ function CreatePost() {
 	const [post, setPost] = useState(initialState);
 	const { title, content } = post;
 	const router = useRouter();
+	const [image, setImage] = useState(null);
 
 	function onChange(event) {
 		setPost(() => ({
@@ -42,8 +43,8 @@ function CreatePost() {
 		router.push(`/posts/${id}`);
 	}
 	return (
-		<div>
-			<h1 className="text-3xl font-semibold tracking-wide mt-6">
+		<div className="container lowercase rounded border-2 border-quaternary bg-quaternary m-10 p-5">
+			<h1 className="rounded  text-3xl font-semibold tracking-wide text-tertiary mt-2">
 				Create New Post
 			</h1>
 			<input
@@ -51,19 +52,28 @@ function CreatePost() {
 				name="title"
 				placeholder="Title"
 				value={post.title}
-				className="border-b pb-2 text-lg my-4 focus:outline-none w-full font-light text-gray-500 placeholder-gray-500 y-2"
+				className="rounded border-b pb-2 text-lg my-4 focus:outline-none w-full bg-tertiary font-light text-primary placeholder-primary y-2"
 			/>
 			<SimpleMDE
+				className="border-2 border-tertiary bg-tertiary rounded font-primary mb-3"
 				value={post.content}
 				onChange={(value) => setPost({ ...post, content: value })}
 			/>
-			<button
-				type="button"
-				className="mb-4 bg-blue-600 text-white font-semibold px-8 p-2 rounded-lg"
-				onClick={createNewPost}
-			>
-				Create Post
-			</button>
+			<div className="flex flex-col">
+				<button
+					type="button"
+					className="rounded flex-auto mb-4 bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
+				>
+					add image
+				</button>
+				<button
+					type="button"
+					className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
+					onClick={createNewPost}
+				>
+					create post
+				</button>
+			</div>
 		</div>
 	);
 }
