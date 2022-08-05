@@ -42,7 +42,7 @@ const Navbar = () => {
 			))}
 			{signedUser && (
 				<Link href="/my-posts">
-					<a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate hover:text-slate-900">
+					<a className="rounded-lg px-3 py-2 text-primary font-medium hover:bg-hover hover:text-tertiary">
 						My Posts
 					</a>
 				</Link>
