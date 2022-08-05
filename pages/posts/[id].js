@@ -21,7 +21,7 @@ export default function Post({ post }) {
 				</h2>
 			</div>
 			<div className="container mt-5 p-3 text-primary text-center text-lg">
-				<ReactMarkDown className="prose" children={post.content} />
+				<ReactMarkDown>{post.content}</ReactMarkDown>
 				<h3 className="pt-3 text-sm">{post.createdAt} </h3>
 			</div>
 		</div>
