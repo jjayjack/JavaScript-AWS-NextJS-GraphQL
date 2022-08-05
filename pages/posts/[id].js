@@ -9,7 +9,7 @@ export default function Post({ post }) {
 	const [coverImage, setCoverImage] = useState(null);
 	useEffect(() => {
 		updateCoverImage();
-	}, []);
+	});
 
 	async function updateCoverImage() {
 		if (post.coverImage) {
