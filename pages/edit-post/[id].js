@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 	ssr: false
 });
-import { updatePost } from "../src/graphql/mutations";
+import { updatePost } from "../../src/graphql/mutations";
 import { getPost } from "../../src/graphql/queries";
 import { v4 as uuid } from "uuid";
 
@@ -29,7 +29,7 @@ function EditPost() {
 		}
 	}, [id]);
 
-	if (!post) return;
+	if (!post) return null;
 
 	function onChange(e) {
 		setPost(() => ({
@@ -38,7 +38,48 @@ function EditPost() {
 		}));
 	}
 
-	return <div></div>;
+	const { title, content } = post;
+	async function updateCurrentPost() {
+		if (!title || !content) return;
+
+		const postUpdated = {
+			id,
+			content,
+			title
+		};
+		await API.graphql({
+			query: updatePost,
+			variables: { input: postUpdated },
+			authMode: "AMAZON_COGNITO_USER_POOLS"
+		});
+
+		router.push("/my-posts");
+	}
+
+	return (
+		<div>
+			<h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">
+				Edit Post
+			</h1>
+			<input
+				onChange={onChange}
+				name="title"
+				placeholder="title"
+				value={post.title}
+				className="border-b pb-2 text-lg my-4 focus:outline-none w-full font-light text-primary placeholder-primary y-2"
+			/>
+			<SimpleMDE
+				value={post.content}
+				onChange={(value) => setPost({ ...post, content: value })}
+			/>
+			<button
+				onClick={updateCurrentPost}
+				className="mb-4 bg-secondary text-tertiary font-semibold px-8 py-2 rounded"
+			>
+				update post
+			</button>
+		</div>
+	);
 }
 
 export default EditPost;
