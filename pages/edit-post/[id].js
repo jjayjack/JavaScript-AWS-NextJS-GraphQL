@@ -29,6 +29,15 @@ function EditPost() {
 		}
 	}, [id]);
 
+	if (!post) return;
+
+	function onChange(e) {
+		setPost(() => ({
+			...post,
+			[e.target.name]: e.target.value
+		}));
+	}
+
 	return <div></div>;
 }
 
