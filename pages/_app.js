@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<div className="bg-tertiary">
 			<Navbar />
-			<div className="container">
+			<div className="container p-5 flex">
 				<Component {...pageProps} />
 			</div>
 		</div>
