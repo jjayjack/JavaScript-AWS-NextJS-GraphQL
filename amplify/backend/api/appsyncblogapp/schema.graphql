@@ -33,4 +33,7 @@ type Comment
 	post: Post @belongsTo(fields: ["postID"])
 	postID: ID @index(name: "byPost")
 }
- 
+
+type Subscription {
+	newOnCreatePost: Post @aws_subscription(mutations: ["createPost"])
+}
