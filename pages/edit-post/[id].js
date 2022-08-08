@@ -41,6 +41,13 @@ function EditPost() {
 		setCoverImage(imageKey);
 	}
 
+	function handleChange(e) {
+		const fileUpload = e.target.files[0];
+		if (!fileUpload) return;
+		setCoverImage(fileUpload);
+		setLocalImage(URL.createObjectURL(fileUpload));
+	}
+
 	function onChange(e) {
 		setPost(() => ({
 			...post,
