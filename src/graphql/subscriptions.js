@@ -2,8 +2,11 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost($username: String) {
-    onCreatePost(username: $username) {
+  subscription OnCreatePost(
+    $filter: ModelSubscriptionPostFilterInput
+    $username: String
+  ) {
+    onCreatePost(filter: $filter, username: $username) {
       id
       title
       content
@@ -26,8 +29,11 @@ export const onCreatePost = /* GraphQL */ `
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost($username: String) {
-    onUpdatePost(username: $username) {
+  subscription OnUpdatePost(
+    $filter: ModelSubscriptionPostFilterInput
+    $username: String
+  ) {
+    onUpdatePost(filter: $filter, username: $username) {
       id
       title
       content
@@ -50,8 +56,11 @@ export const onUpdatePost = /* GraphQL */ `
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost($username: String) {
-    onDeletePost(username: $username) {
+  subscription OnDeletePost(
+    $filter: ModelSubscriptionPostFilterInput
+    $username: String
+  ) {
+    onDeletePost(filter: $filter, username: $username) {
       id
       title
       content
@@ -74,8 +83,11 @@ export const onDeletePost = /* GraphQL */ `
   }
 `;
 export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($createdBy: String) {
-    onCreateComment(createdBy: $createdBy) {
+  subscription OnCreateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $createdBy: String
+  ) {
+    onCreateComment(filter: $filter, createdBy: $createdBy) {
       id
       message
       post {
@@ -98,8 +110,11 @@ export const onCreateComment = /* GraphQL */ `
   }
 `;
 export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($createdBy: String) {
-    onUpdateComment(createdBy: $createdBy) {
+  subscription OnUpdateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $createdBy: String
+  ) {
+    onUpdateComment(filter: $filter, createdBy: $createdBy) {
       id
       message
       post {
@@ -122,8 +137,11 @@ export const onUpdateComment = /* GraphQL */ `
   }
 `;
 export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($createdBy: String) {
-    onDeleteComment(createdBy: $createdBy) {
+  subscription OnDeleteComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $createdBy: String
+  ) {
+    onDeleteComment(filter: $filter, createdBy: $createdBy) {
       id
       message
       post {
