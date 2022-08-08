@@ -6,11 +6,11 @@ import ReactMarkDown from "react-markdown";
 import "../../configureAmplify";
 import { listPosts, getPost } from "../../src/graphql/queries";
 import { createComment } from "../../src/graphql/mutations";
+import "easymde/dist/easymde.min.css";
 import dynamic from "next/dynamic";
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 	ssr: false
 });
-import "easymde/dist/easymde.min.css";
 
 const initialState = { message: "" };
 
@@ -20,9 +20,11 @@ export default function Post({ post }) {
 	const [showMe, setShowMe] = useState(false);
 	const router = useRouter();
 	const { message } = comment;
+
 	function toggle() {
 		setShowMe(!showMe);
 	}
+
 	useEffect(() => {
 		updateCoverImage();
 	});
