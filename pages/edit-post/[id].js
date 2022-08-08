@@ -91,6 +91,7 @@ function EditPost() {
 				<img
 					className="mt-4 w-1/4 h-1/4 rounded"
 					src={localImage ? localImage : coverImage}
+					alt={post.title}
 				/>
 			)}
 			<input
