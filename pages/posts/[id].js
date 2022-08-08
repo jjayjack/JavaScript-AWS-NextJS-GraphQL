@@ -91,6 +91,7 @@ export default function Post({ post }) {
 							}}
 						/>
 						<button
+							onClick={createNewComment}
 							type="button"
 							className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
 						>
