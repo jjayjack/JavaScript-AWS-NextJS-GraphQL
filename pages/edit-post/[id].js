@@ -40,6 +40,9 @@ function EditPost() {
 		const imageKey = await Storage.get(coverImage);
 		setCoverImage(imageKey);
 	}
+	async function uploadImage() {
+		fileInput.current.click();
+	}
 
 	function handleChange(e) {
 		const fileUpload = e.target.files[0];
@@ -64,6 +67,12 @@ function EditPost() {
 			content,
 			title
 		};
+
+		if (coverImage && localImage) {
+			const fileName = `${coverImage.name}_${uuid()}`;
+			postUpdated.coverImage = fileName;
+			await Storage.put(fileName, coverImage);
+		}
 		await API.graphql({
 			query: updatePost,
 			variables: { input: postUpdated },
@@ -89,6 +98,19 @@ function EditPost() {
 				value={post.content}
 				onChange={(value) => setPost({ ...post, content: value })}
 			/>
+			<input
+				type="file"
+				ref={fileInput}
+				className="absolute w-0 h-0 mb-4"
+				onChange={handleChange}
+			/>
+			<button
+				onClick={uploadImage}
+				className="mb-4 bg-quaternary text-tertiary font-semibold px-8 py-2 rounded"
+			>
+				upload cover image
+			</button>
+
 			<button
 				onClick={updateCurrentPost}
 				className="mb-4 bg-secondary text-tertiary font-semibold px-8 py-2 rounded"
