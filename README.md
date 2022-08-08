@@ -42,13 +42,63 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 **3. [AWS Amplify](https://aws.amazon.com/amplify/)**
 
     ``amplify init``
-    ``@aws-amplify/ui-react@1.x.x``
-    ``amplify add api``
-    ``amplify push``
-    ``amplify console api``
-    ``amplify add auth``
-    ``amplify update api``
-    ``amplify add storage``
+
+a) Analyzes the project and confirms the frontend settings
+
+b) Carries out the initialization logic of the selected frontend
+
+c) If there are multiple provider plugins, prompts to select the plugins that will provide accesses to cloud resources
+
+d) Carries out, in sequence, the initialization logic of the selected plugin(s)
+
+e) Insert amplify folder structure into the project's root directory, with the initial project configuration
+
+f) Generate the project metadata files, with the outputs of the above-selected plugin(s)
+
+g) Creates a cloud project in the AWS Amplify Console to view and manage resources for all backend environments.
+<br><br>
+
+    @aws-amplify/ui-react@1.x.x
+
+<br><br>
+
+    amplify add api
+
+<br><br>
+
+    amplify push
+
+Upload the latest versions of the categories nested stack template to the S3 deployment bucked, and then call the AWS CloudFormation API to create/update resources in the cloud
+<br><br>
+
+    amplify console api
+
+Launches the browser directing you to your cloud project in the AWS Amplify Console.
+<br><br>
+
+    amplify add auth
+    amplify update api
+    amplify add storage
+
+    amplify mock api
+
+Requires JAVA
+<br><br>
+
+    amplify remove auth
+
+Removes Auth
+<br><br>
+
+    amplify status
+
+show all services you have enabled at any time
+
+<br><br>
+
+    amplify delete
+
+deletes the entire project in the cloud
 
 **4. [uuid](https://www.npmjs.com/package/uuid)**
 
