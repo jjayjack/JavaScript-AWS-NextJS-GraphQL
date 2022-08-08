@@ -12,6 +12,9 @@ import { v4 as uuid } from "uuid";
 
 function EditPost() {
 	const [post, setPost] = useState(null);
+	const [coverImage, setCoverImage] = useState(null);
+	const [localImage, setLocalImage] = useState(null);
+	const fileInput = useRef(null);
 	const router = useRouter();
 	const { id } = router.query;
 
