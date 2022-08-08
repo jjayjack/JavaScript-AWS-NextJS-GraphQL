@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 **3. [AWS Amplify](https://aws.amazon.com/amplify/)**
 
-    ``amplify init``
+    amplify init
 
 a) Analyzes the project and confirms the frontend settings
 
@@ -76,9 +76,13 @@ Upload the latest versions of the categories nested stack template to the S3 dep
 Launches the browser directing you to your cloud project in the AWS Amplify Console.
 <br><br>
 
-    amplify add auth
     amplify update api
+
+<br><br>
+
     amplify add storage
+
+<br><br>
 
     amplify mock api
 
@@ -99,6 +103,32 @@ show all services you have enabled at any time
     amplify delete
 
 deletes the entire project in the cloud
+
+<br><br>
+
+    amplify add hosting
+
+Hosting with Amplify Console
+Manual Deployment
+<br><br>
+
+    amplify publish
+
+<br><br>
+
+    amplify configure project
+
+a) Project Information
+b) default
+c) Visual Studio Code
+d) type of app
+e) framework
+f) src
+g) **Distribution Directory Path** out
+h) Build Command: default
+i) Start Command: default
+
+<br><br>
 
 **4. [uuid](https://www.npmjs.com/package/uuid)**
 
