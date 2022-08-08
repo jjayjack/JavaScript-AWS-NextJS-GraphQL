@@ -1,6 +1,7 @@
 import { API, Storage, Auth, Hub } from "aws-amplify";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { v4 as uuid } from "uuid";
 import ReactMarkDown from "react-markdown";
 import "../../configureAmplify";
 import { listPosts, getPost } from "../../src/graphql/queries";
@@ -9,6 +10,7 @@ import dynamic from "next/dynamic";
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 	ssr: false
 });
+import "easymde/dist/easymde.min.css";
 
 const initialState = { message: "" };
 
@@ -16,6 +18,8 @@ export default function Post({ post }) {
 	const [coverImage, setCoverImage] = useState(null);
 	const [comment, setComment] = useState(initialState);
 	const [showMe, setShowMe] = useState(false);
+	const router = useRouter();
+	const { message } = comment;
 	function toggle() {
 		setShowMe(!showMe);
 	}
@@ -30,9 +34,14 @@ export default function Post({ post }) {
 		}
 	}
 
-	const router = useRouter();
 	if (router.isFallback) {
 		return <div>Loading..</div>;
+	}
+
+	async function createComment() {
+		if (!message) return;
+		const id = uuid();
+		comment.id = id;
 	}
 
 	return (
