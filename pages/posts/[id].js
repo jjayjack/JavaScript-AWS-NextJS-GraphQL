@@ -1,12 +1,24 @@
-import { API, Storage } from "aws-amplify";
+import { API, Storage, Auth, Hub } from "aws-amplify";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ReactMarkDown from "react-markdown";
 import "../../configureAmplify";
 import { listPosts, getPost } from "../../src/graphql/queries";
+import { createComment } from "../../src/graphql/mutations";
+import dynamic from "next/dynamic";
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
+	ssr: false
+});
+
+const initialState = { message: "" };
 
 export default function Post({ post }) {
 	const [coverImage, setCoverImage] = useState(null);
+	const [comment, setComment] = useState(initialState);
+	const [showMe, setShowMe] = useState(false);
+	function toggle() {
+		setShowMe(!showMe);
+	}
 	useEffect(() => {
 		updateCoverImage();
 	});
@@ -41,6 +53,26 @@ export default function Post({ post }) {
 			<div className="container mt-5 p-3 text-primary text-center text-lg">
 				<ReactMarkDown>{post.content}</ReactMarkDown>
 				<h3 className="pt-3 text-sm">{post.createdAt} </h3>
+			</div>
+			<div>
+				<button
+					type="button"
+					className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
+					onClick={toggle}
+				>
+					write a comment
+				</button>
+				{
+					<div style={{ display: showMe ? "block" : "none" }}>
+						<SimpleMDE value="hello" />
+						<button
+							type="button"
+							className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
+						>
+							save
+						</button>
+					</div>
+				}
 			</div>
 		</div>
 	);
