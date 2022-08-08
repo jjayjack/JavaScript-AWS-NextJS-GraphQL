@@ -55,6 +55,20 @@ export default function Home() {
 								>
 									<h2 className="text-xl font-bold">{post.title}</h2>
 									<p>Written by: {post.username}</p>
+									{post.comments.items.length > 0 &&
+										post.comments.items.map((comment, index) => (
+											<div
+												key={index}
+												className="p-8 my-6 mx-12 mb-2 max-w-xl mx-auto bg-tertiary shadow-lg space-y-2 sm:py-1 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"
+											>
+												<div>
+													<p className="text-primary mt-2">{comment.message}</p>
+													<p className="text-primary font-light mt-2">
+														{comment.createdBy}
+													</p>
+												</div>
+											</div>
+										))}
 								</li>
 							</div>
 						</Link>
