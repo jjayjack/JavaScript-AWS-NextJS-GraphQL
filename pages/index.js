@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { API } from "aws-amplify";
+import { API, Storage } from "aws-amplify";
 import { listPosts } from "../src/graphql/queries";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,7 +15,16 @@ export default function Home() {
 		const postData = await API.graphql({
 			query: listPosts
 		});
-		setPosts(postData.data.listPosts.items);
+		const { items } = postData.data.listPosts;
+		const postWithImages = await Promise.all(
+			items.map(async (post) => {
+				if (post.coverImage) {
+					post.coverImage = await Storage.get(post.coverImage);
+				}
+				return post;
+			})
+		);
+		setPosts(postWithImages);
 	}
 
 	return (
@@ -26,14 +35,18 @@ export default function Home() {
 				</h1>
 				<ul className="container bg-tertiary rounded mt-5 p-3 text-primary">
 					{posts.map((post, index) => (
-						<Link key={index} href={`/posts/${post.id}`}>
+						<Link
+							key={index}
+							href={`/posts/${post.id}`}
+							className="cursor-pointer"
+						>
 							<div>
 								{post.coverImage && (
 									<img
 										src={post.coverImage}
 										alt={post.title}
-										width={300}
-										height={300}
+										width={150}
+										height={150}
 									/>
 								)}
 								<li
