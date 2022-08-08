@@ -15,6 +15,7 @@ const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 const initialState = { message: "" };
 
 export default function Post({ post }) {
+	const [signedInUser, setSignedInUser] = useState(false);
 	const [coverImage, setCoverImage] = useState(null);
 	const [comment, setComment] = useState(initialState);
 	const [showMe, setShowMe] = useState(false);
@@ -23,6 +24,24 @@ export default function Post({ post }) {
 
 	function toggle() {
 		setShowMe(!showMe);
+	}
+
+	useEffect(() => {
+		authListener();
+	}, []);
+	async function authListener() {
+		Hub.listen("auth", (data) => {
+			switch (data.payload.event) {
+				case "signedIn":
+					return setSignedInUser(true);
+				case "signedOut":
+					return setSignedInUser(false);
+			}
+		});
+		try {
+			await Auth.currentAuthenticatedUser();
+			setSignedInUser(true);
+		} catch (err) {}
 	}
 
 	useEffect(() => {
@@ -77,13 +96,15 @@ export default function Post({ post }) {
 				<h3 className="pt-3 text-sm">{post.createdAt} </h3>
 			</div>
 			<div>
-				<button
-					type="button"
-					className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
-					onClick={toggle}
-				>
-					write a comment
-				</button>
+				{signedInUser && (
+					<button
+						type="button"
+						className="rounded flex-auto bg-tertiary cursor-pointer p-2 border-2 border-secondary hover:bg-secondary hover:text-tertiary hover:font-bold"
+						onClick={toggle}
+					>
+						write a comment
+					</button>
+				)}
 				{
 					<div style={{ display: showMe ? "block" : "none" }}>
 						<SimpleMDE
