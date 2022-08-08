@@ -87,6 +87,12 @@ function EditPost() {
 			<h1 className="text-3xl font-semibold tracking-wide mt-6 mb-2">
 				Edit Post
 			</h1>
+			{coverImage && (
+				<img
+					className="mt-4 w-1/4 h-1/4 rounded"
+					src={localImage ? localImage : coverImage}
+				/>
+			)}
 			<input
 				onChange={onChange}
 				name="title"
